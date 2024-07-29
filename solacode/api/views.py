@@ -1,6 +1,9 @@
 from django.shortcuts import redirect
 from django.http import HttpResponse,FileResponse
 from user_agents import parse
+from rest_framework import permissions, viewsets
+
+from . import serializers, models
 
 # Create your views here.
 def planly(request):
@@ -27,3 +30,9 @@ def resume(request,lang=''):
     else:
         return FileResponse(open('./assets/resume-fa.pdf','rb'),as_attachment=True,filename='بهار پایدار') # return resume-fa
 
+class SubscriptionViewSet(viewsets.ModelViewSet):
+    queryset = models.Subscription.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = serializers.SubscriptionSerializer
