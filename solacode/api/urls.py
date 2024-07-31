@@ -6,6 +6,9 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register('subscription',views.SubscriptionViewSet)
+router.register('hire',views.HireViewSet)
+router.register('blog',views.BlogViewSet)
+router.register('resource',views.ResourceViewSet)
 
 app_name='api'
 urlpatterns = [

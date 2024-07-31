@@ -30,9 +30,50 @@ def resume(request,lang=''):
     else:
         return FileResponse(open('./assets/resume-fa.pdf','rb'),as_attachment=True,filename='بهار پایدار') # return resume-fa
 
+
 class SubscriptionViewSet(viewsets.ModelViewSet):
     queryset = models.Subscription.objects.all()
     permission_classes = [
         permissions.AllowAny
     ]
     serializer_class = serializers.SubscriptionSerializer
+
+    def create(self, request, *args, **kwargs):
+        res = super().create(request,*args,**kwargs)
+        # perform necessary actions
+        return res
+
+
+class HireViewSet(viewsets.ModelViewSet):
+    queryset = models.Hire.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = serializers.HireSerializer
+
+    def create(self, request, *args, **kwargs):
+        res = super().create(request,*args,**kwargs)
+        # send email
+        return res
+
+    def update(self, request, pk=None):
+        response = HttpResponse()
+        response.headers['Allow'] = 'GET, POST, DELETE'
+        response.status_code = 405
+        return response
+
+
+class BlogViewSet(viewsets.ModelViewSet):
+    queryset = models.Blog.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = serializers.BlogSerializer
+
+
+class ResourceViewSet(viewsets.ModelViewSet):
+    queryset = models.Resource.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = serializers.ResourceSerializer

@@ -10,6 +10,21 @@ class Subscription(models.Model):
     email = models.EmailField(unique=True)
     frequency = models.CharField(max_length=1,choices=freq_choices,default='w')
 
+class Hire(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    summary = models.TextField()
+    budget = models.CharField(max_length=150,blank=True)
+    creation = models.DateTimeField(auto_now_add=True)
 
+class Blog(models.Model):
+    title = models.CharField(max_length=150, unique=True)
+    summary = models.TextField()
+    body = models.TextField()
+    image = models.FileField(upload_to='blog/',blank=True)
+    date = models.DateField(auto_now_add=True)
 
-
+class Resource(models.Model):
+    name = models.CharField(max_length=25,unique=True)
+    description = models.CharField(max_length=150)
+    file = models.FileField(upload_to='resources/')
