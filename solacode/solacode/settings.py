@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_vite_plugin',
     'api',
+    'front',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = 'assets/'
 STATICFILES_DIRS = [
-    BASE_DIR / "assets",
+    BASE_DIR / "front/src",
 ]
 
 # Default primary key field type
