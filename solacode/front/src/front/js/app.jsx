@@ -1,9 +1,13 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 function App() {
 
   return (
-    <h2>Hello World from Vite App</h2>
+    <>
+      <h2>App page</h2>
+      <Outlet />
+    </>
   );
 }
 
