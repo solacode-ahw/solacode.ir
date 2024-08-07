@@ -28,7 +28,6 @@ const router = createBrowserRouter([
       },
       {
         path: "hire",
-        key: 'hire',
         element: <Hire />,
       },
       {
