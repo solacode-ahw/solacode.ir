@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 
 import App from './app.jsx';
-import Home from './home.jsx';
-import Hire from './hire.jsx';
-import Blog from './blog.jsx';
-import Post from './post.jsx';
-import Resources from './resources.jsx';
-import { Unsubscribe, Subscription } from './subscription.jsx';
-import NotFound from './404.jsx';
+import Home from './pages/home.jsx';
+import Hire from './pages/hire.jsx';
+import Blog from './pages/blog.jsx';
+import Post from './pages/post.jsx';
+import Resources from './pages/resources.jsx';
+import { Unsubscribe, Subscription } from './pages/subscription.jsx';
+import NotFound from './pages/404.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,6 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "hire",
+        key: 'hire',
         element: <Hire />,
       },
       {
@@ -39,17 +40,17 @@ const router = createBrowserRouter([
         element: <Post />
       },
       {
-        path: "resources",
-        element: <Resources />
-      },
-      {
-        path: "unsubscribe",
+        path: "blog/unsubscribe",
         element: <Unsubscribe />,
       },
       {
-        path: "subscription",
+        path: "blog/subscription",
         element: <Subscription />,
-      }
+      },
+      {
+        path: "resources",
+        element: <Resources />
+      },
     ]
   }
 ]);
