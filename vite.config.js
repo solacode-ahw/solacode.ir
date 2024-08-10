@@ -5,7 +5,7 @@ export default defineConfig({
     plugins: [
         djangoVitePlugin({
             input: [
-                'front/js/main.jsx',
+                'front/main.jsx',
             ],
             root: './solacode',
         })

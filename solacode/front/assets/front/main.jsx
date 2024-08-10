@@ -6,14 +6,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import App from './app.jsx';
-import Home from './pages/home.jsx';
-import Hire from './pages/hire.jsx';
-import Blog from './pages/blog.jsx';
-import Post from './pages/post.jsx';
-import Resources from './pages/resources.jsx';
-import { Unsubscribe, Subscription } from './pages/subscription.jsx';
-import NotFound from './pages/404.jsx';
+import App from '../../src/js/app.jsx';
+import Home from '../../src/js/pages/home.jsx';
+import Hire from '../../src/js/pages/hire.jsx';
+import Blog from '../../src/js/pages/blog.jsx';
+import Post from '../../src/js/pages/post.jsx';
+import Resources from '../../src/js/pages/resources.jsx';
+import { Unsubscribe, Subscription } from '../../src/js/pages/subscription.jsx';
+import NotFound from '../../src/js/pages/404.jsx';
 
 
 const router = createBrowserRouter([
