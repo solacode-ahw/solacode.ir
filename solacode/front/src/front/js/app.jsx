@@ -5,6 +5,8 @@ import Footer from "./components/footer";
 
 import { SettingsContext, settingsReducer } from "./utils/context";
 
+import '../css/app.sass';
+
 
 function App() {
 
@@ -15,8 +17,11 @@ function App() {
 
   return (
     <SettingsContext.Provider value={settings}><>
-      <header>
-        <img src="/assets/front/img/logo.png" />
+      <header className={settings.theme}>
+        <h1 className="hide">SolaCode</h1>
+        <a href="/">
+          <img src="/assets/front/img/logo.png" />
+        </a>
       </header>
       <Outlet />
       <Footer onChangeSettings={updateSettings} />

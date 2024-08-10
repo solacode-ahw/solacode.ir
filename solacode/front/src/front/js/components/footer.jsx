@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
+
+import { SettingsContext } from "../utils/context";
 
 
 function Footer({onChangeSettings}){
     const blog = useLocation().pathname.includes('/blog');
+    const settings = useContext(SettingsContext);
 
     if(blog){
         return (
-            <>
+            <footer className={settings.theme}>
                 <p>this is blog footer</p>
-            </>
+            </footer>
         );
     } else {
         return (
-            <>
+            <footer className={settings.theme}>
                 <p>this is default footer</p>
-            </>
+            </footer>
         );
     }
 }
