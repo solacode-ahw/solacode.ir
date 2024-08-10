@@ -310,6 +310,7 @@ dist
 ### Node Patch ###
 # Serverless Webpack directories
 .webpack/
+.hotfile
 
 # Optional stylelint cache
 

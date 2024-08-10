@@ -20,7 +20,7 @@
         "./api/templates/api/*"
       ],
       "@s:front/*": [
-        "./front/assets/front/*"
+        "./front/static/front/*"
       ],
       "@t:front/*": [
         "./front/templates/front/*"
