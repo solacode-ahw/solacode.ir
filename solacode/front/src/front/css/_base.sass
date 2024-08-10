@@ -1,0 +1,56 @@
+@use 'sass:color'
+    
+// FONTS
+$borna-woff: "/assets/front/font/woff/"
+$borna-woff2: "/assets/front/font/woff2/"
+
+@font-face
+    src: url($borna-woff + "light.woff") format("woff"), url($borna-woff2 + "light.woff2") format("woff2")
+    font-family: "Borna"
+    font-weight: 300
+
+@font-face
+    src: url($borna-woff + "regular.woff") format("woff"), url($borna-woff2 + "regular.woff2") format("woff2")
+    font-family: "Borna"
+    font-weight: 400
+
+@font-face
+    src: url($borna-woff + "bold.woff") format("woff"), url($borna-woff2 + "bold.woff2") format("woff2")
+    font-family: "Borna"
+    font-weight: 700
+
+
+// COLORS
+$dark: #333745
+$gray: #97979C
+$light: #FBF7F4
+$primary-lightest: #FFC458
+$primary-lighter: #FFB42B
+$primary-original: #E59500
+$primary-darker: #B77700
+$primary-darkest: #8E5C00
+
+// EFFECTS
+$raise: inset 0px 0px 4px
+
+// BASIC RULES
+*
+    margin: 0px
+    font-family: 'Borna'
+a
+    text-decoration: none
+    color: inherit
+.hide
+    display: none
+
+.light
+    background-color: $light
+    color: $dark
+    .raise
+        box-shadow: $raise color.change($dark,$alpha:0.5)
+.dark
+    background-color: $dark
+    color: $light
+    .raise
+        box-shadow: $raise color.change($light,$alpha:0.5)
+
