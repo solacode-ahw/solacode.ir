@@ -31,7 +31,8 @@ $primary-darker: #B77700
 $primary-darkest: #8E5C00
 
 // EFFECTS
-$raise: inset 0px 0px 4px
+$raise-light: inset 0px 0px 4px color.change($dark,$alpha:0.5)
+$raise-dark: inset 0px 0px 4px color.change($light,$alpha:0.5)
 
 // BASIC RULES
 *
@@ -43,14 +44,16 @@ a
 .hide
     display: none
 
-.light
-    background-color: $light
-    color: $dark
-    .raise
-        box-shadow: $raise color.change($dark,$alpha:0.5)
-.dark
-    background-color: $dark
-    color: $light
-    .raise
-        box-shadow: $raise color.change($light,$alpha:0.5)
+main
+    padding: 0px 32px
+    &.light
+        background-color: $light
+        color: $dark
+    &.dark
+        background-color: $dark
+        color: $light
+    &.fa
+        direction: rtl
+    &.en
+        direction: ltr
 

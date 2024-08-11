@@ -10,13 +10,13 @@ function Footer({onChangeSettings}){
 
     if(blog){
         return (
-            <footer className={settings.theme}>
+            <footer>
                 <p>this is blog footer</p>
             </footer>
         );
     } else {
         return (
-            <footer className={settings.theme}>
+            <footer>
                 <p>this is default footer</p>
             </footer>
         );
