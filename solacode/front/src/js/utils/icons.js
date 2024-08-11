@@ -14,3 +14,5 @@ const icons = {
     search: '\\e907',
     share: '\\e90a',
 };
+
+export default icons;
