@@ -1,0 +1,102 @@
+@use 'base'
+
+footer
+    padding: 16px
+    display: flex
+    flex-flow: row wrap
+    align-items: flex-end
+    gap: 16px
+    section
+        flex: 1 1 45%
+    #information
+        min-width: min(350px,100%)
+        padding-bottom: 32px
+        a
+            text-decoration: underline
+            color: base.$gray
+    #contact
+        flex: 0 0 content
+        display: flex
+        flex-flow: row nowrap
+        gap: 12px
+        font-size: 24px
+    #control
+        min-width: min(150px,calc( 100% - 60px ))
+        display: flex
+        flex-flow: row nowrap
+        gap: 16px
+        justify-content: flex-end
+        #theme-switch
+            width: 56px
+            height: 32px
+            padding: 0px
+            position: relative
+            border-radius: 6px
+            background-color: base.$gray
+            border: none
+            cursor: pointer
+            span
+                position: absolute
+                top: 4px
+                font-size: 12px
+                line-height: 12px
+                height: 12px
+                width: 12px
+                border-radius: 6px
+                padding: 6px
+        #language-picker
+            position: relative
+            button
+                background-color: transparent
+                display: flex
+                flex-flow: row nowrap
+                padding: 4px 8px
+                gap: 12px
+                border-radius: 6px
+                align-items: center
+                cursor: pointer
+                #down
+                    font-size: 12px
+            dialog
+                position: absolute
+                bottom: 0
+                border-radius: 6px
+                padding: 4px 8px
+                width: inherit
+                &::backdrop
+                    background-color: transparent
+                p
+                    cursor: pointer
+
+.light
+    footer
+        border-top: 1px solid base.$dark
+        *
+            color: base.$dark
+        #theme-switch
+            span
+                left: 4px
+                background-color: base.$light
+                box-shadow: base.$raise-light
+        #language-picker
+            button
+                border: 1px solid base.$dark
+            dialog
+                border: 1px solid base.$dark
+                background-color: base.$light
+.dark
+    footer
+        border-top: 1px solid base.$light
+        *
+            color: base.$light
+        #theme-switch
+            span
+                right: 4px
+                background-color: base.$dark
+                box-shadow: base.$raise-dark
+        #language-picker
+            button
+                border: 1px solid base.$light
+            dialog
+                border: 1px solid base.$light
+                background-color: base.$dark
