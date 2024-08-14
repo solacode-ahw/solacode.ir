@@ -11,17 +11,20 @@ function settingsReducer(state,action){
     */
     if(action==='theme'){
         if(state.theme==='light'){
+            localStorage.setItem('solaTheme', 'dark');
             return {
                 theme: 'dark',
                 lang: state.lang
             };
         } else {
+            localStorage.setItem('solaTheme', 'light');
             return {
                 theme: 'light',
                 lang: state.lang
             };
         }
     } else if(['fa','en'].includes(action)){
+        localStorage.setItem('solaLang', action);
         return {
             theme: state.theme,
             lang: action

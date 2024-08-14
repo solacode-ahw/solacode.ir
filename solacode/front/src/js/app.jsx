@@ -28,6 +28,16 @@ function App() {
     theme: 'light',
     lang: 'fa',
   });
+  useEffect(()=>{
+    let val = localStorage.getItem('solaTheme');
+    if(val && val!==settings.theme){
+      updateSettings('theme');
+    }
+    val = localStorage.getItem('solaLang');
+    if(val && val!==settings.lang){
+      updateSettings(val);
+    }
+  },[]);
   
   useEffect(()=>{
     document.getElementById('root').className = `${settings.theme} ${settings.lang}`;
