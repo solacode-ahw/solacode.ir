@@ -52,7 +52,9 @@ function App() {
         </a>
       </header>
       <Navigation items={navItems} />
-      <Outlet />
+      <section id="body">
+        <Outlet />
+      </section>
       <Footer onChangeSettings={updateSettings} />
     </></SettingsContext.Provider>
   );
