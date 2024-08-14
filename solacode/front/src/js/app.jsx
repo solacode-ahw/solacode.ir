@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import Footer from "./components/footer";
 import Navigation from "./components/nav";
+import NotFound from "./components/404";
 
 import { SettingsContext, settingsReducer } from "./utils/context";
 
@@ -22,7 +23,7 @@ const navItems = {
   }
 };
 
-function App() {
+function App({error}) {
 
   const [settings, updateSettings] = useReducer(settingsReducer,{
     theme: 'light',
@@ -51,7 +52,10 @@ function App() {
           <img src="/assets/front/img/logo.png" alt="Logo" />
         </a>
       </header>
-      <Navigation items={navItems} />
+      {error?
+        <NotFound />:
+        <Navigation items={navItems} />
+      }
       <section id="body">
         <Outlet />
       </section>

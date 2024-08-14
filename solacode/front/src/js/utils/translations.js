@@ -37,3 +37,10 @@ export const footer = {
         },
     },
 };
+
+export const error = {
+    title: {
+        en: 'Not Found',
+        fa: 'خطای ۴۰۴',
+    },
+};

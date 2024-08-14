@@ -13,14 +13,13 @@ import Blog from '../../src/js/pages/blog.jsx';
 import Post from '../../src/js/pages/post.jsx';
 import Resources from '../../src/js/pages/resources.jsx';
 import { Unsubscribe, Subscription } from '../../src/js/pages/subscription.jsx';
-import NotFound from '../../src/js/pages/404.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    errorElement: <NotFound />,
+    element: <App error={false} />,
+    errorElement: <App error={true} />,
     children: [
       {
         index: true,

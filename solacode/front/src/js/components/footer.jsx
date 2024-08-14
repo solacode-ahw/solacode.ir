@@ -8,7 +8,7 @@ import '../../css/footer.sass';
 
 
 function Footer({onChangeSettings}){
-    const blog = useLocation().pathname.includes('/blog');
+    const blog = /(\/blog\/?$)|(\/blog\/post\/\d+)/.test(useLocation().pathname);
     const settings = useContext(SettingsContext);
 
     const [langOpen,setLangOpen] = useState(false);
