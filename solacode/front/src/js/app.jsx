@@ -47,8 +47,8 @@ function App() {
     <SettingsContext.Provider value={settings}><>
       <header>
         <h1 className="hide">SolaCode</h1>
-        <a href="/">
-          <img src="/assets/front/img/logo.png" />
+        <a href="/" title="SolaCode Home">
+          <img src="/assets/front/img/logo.png" alt="Logo" />
         </a>
       </header>
       <Navigation items={navItems} />

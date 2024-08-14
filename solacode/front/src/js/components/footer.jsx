@@ -27,21 +27,21 @@ function Footer({onChangeSettings}){
                 <p>{footer[settings.lang].icon[0]} <a href="https://github.com/480-Design/Solar-Icon-Set">{footer[settings.lang].icon[1]}</a></p>
             </section>
             <section id="contact">
-                <a href="/api/insta" className="icon instagram"></a>
-                <a href="/api/mail" className="icon mail"></a>
+                <a href="/api/insta" className="icon instagram" title={footer.mail[settings.lang]}></a>
+                <a href="/api/mail" className="icon mail" title={footer.insta[settings.lang]}></a>
             </section>
             <section id="control">
-                <button id="theme-switch" type="button" onClick={()=>onChangeSettings('theme')}>
+                <button id="theme-switch" type="button" onClick={()=>onChangeSettings('theme')} aria-label={footer.themeSwitcher.label[settings.lang]} aria-valuetext={footer.themeSwitcher[settings.theme][settings.lang]}>
                     <span className={`icon ${settings.theme}`}></span>
                 </button>
                 {blog?null:
-                    <aside id="language-picker">
-                        <button type="button" onClick={()=>setLangOpen(true)}>
+                    <aside id="language-picker" aria-label="website's language, زبان سایت">
+                        <button type="button" onClick={()=>setLangOpen(true)} aria-label="open menu, بازکردن منو">
                             <span>{settings.lang==='fa'?'فا':'en'}</span> <span id="arrow" className="icon down"></span>
                         </button>
                         <dialog open={langOpen}>
-                            <p onClick={()=>changeLang('fa')}>فا</p>
-                            <p onClick={()=>changeLang('en')}>en</p>
+                            <p onClick={()=>changeLang('fa')} role="button">فا</p>
+                            <p onClick={()=>changeLang('en')} role="button">en</p>
                         </dialog>
                     </aside>
                 }
