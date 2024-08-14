@@ -54,11 +54,13 @@ function App({error}) {
       </header>
       {error?
         <NotFound />:
-        <Navigation items={navItems} />
+        <>
+          <Navigation items={navItems} />
+          <section id="body">
+            <Outlet />
+          </section>
+        </>
       }
-      <section id="body">
-        <Outlet />
-      </section>
       <Footer onChangeSettings={updateSettings} />
     </></SettingsContext.Provider>
   );
