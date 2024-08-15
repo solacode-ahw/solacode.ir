@@ -43,4 +43,12 @@ export const error = {
         en: 'Not Found',
         fa: 'خطای ۴۰۴',
     },
+    pre: {
+        en: 'It seems the link you clicked on is broken.',
+        fa: 'لینک موردنظر وجود ندارد.',
+    },
+    post: {
+        en: "Maybe you can find what you're looking for in one of the links below:",
+        fa: 'شاید در یکی از لینک‌های زیر آنچه را دنبالش هستید بیابید:',
+    },
 };

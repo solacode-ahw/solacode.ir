@@ -53,7 +53,7 @@ function App({error}) {
         </a>
       </header>
       {error?
-        <NotFound />:
+        <NotFound items={navItems} />:
         <>
           <Navigation items={navItems} />
           <section id="body">

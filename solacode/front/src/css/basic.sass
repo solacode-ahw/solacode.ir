@@ -1,0 +1,40 @@
+@use 'base'
+
+
+.sola-button
+    border: none
+    border-radius: 6px
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    gap: 8px
+    &.wide
+        padding: 4px 12px
+    &.square
+        padding: 8px
+    .arrow
+        font-size: 12px
+    .symbol
+        font-size: 18px
+        line-height: 18px
+        width: 18px
+        height: 18px
+    &:hover
+        font-weight: normal
+
+.light
+    .sola-button
+        background-color: base.$light
+        box-shadow: base.$raise-light
+        &:hover
+            background-color: base.$dark
+            box-shadow: base.$raise-dark
+            color: base.$light
+.dark
+    .sola-button
+        background-color: base.$dark
+        box-shadow: base.$raise-dark
+        &:hover
+            background-color: base.$light
+            box-shadow: base.$raise-light
+            color: base.$dark
