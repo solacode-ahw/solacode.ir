@@ -52,3 +52,62 @@ export const error = {
         fa: 'شاید در یکی از لینک‌های زیر آنچه را دنبالش هستید بیابید:',
     },
 };
+
+export const home = {
+    keywords: {
+        en: '',
+        fa: '',
+    },
+    description: {
+        en: '',
+        fa: '',
+    },
+    alts: {
+        me: {
+            en: 'An image of me',
+            fa: 'تصویری از من',
+        },
+        art: {
+            en: 'Clipart of a woman working in her office',
+            fa: 'طراحی یک زن در دفتر کار خود',
+        },
+    },
+    title: {
+        en: 'software developer',
+        fa: 'توسعه‌دهنده نرم‌افزار',
+    },
+    subtitles: {
+        en: [
+            'mobile application',
+            'web-based application',
+            'personal website',
+        ],
+        fa: [
+            'اپلیکیشن موبایل',
+            'اپلیکیشن تحت وب',
+            'وبسایت شخصی',
+        ],
+    },
+    about: {
+        en: 'Who am I?',
+        fa: 'درباره‌ی من',
+    },
+    projects: {
+        en: 'What projects have I developed?',
+        fa: 'پروژه‌های من',
+    },
+    advert: {
+        text: {
+            en: 'I will create your website or application exactly the way you want it!',
+            fa: 'من وبسایت و اپلیکیشن شما را همانگونه که می‌خواهید، خواهم ساخت!',
+        },
+        resume: {
+            en: 'Download my resume',
+            fa: 'دانلود رزومه',
+        },
+        hire: {
+            en: 'Request my services',
+            fa: 'ارسال درخواست همکاری',
+        }
+    }
+};
