@@ -9,6 +9,9 @@ from . import serializers, models
 def planly(request):
     return redirect('https://github.com/solacode-ahw/planly')
 
+def solacode(request):
+    return redirect('https://github.com/solacode-ahw') # change this to solacode website repo
+
 def insta(request):
     return redirect('https://instagram.com/solacode.ahw')
 

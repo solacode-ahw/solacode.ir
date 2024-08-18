@@ -13,6 +13,7 @@ router.register('resource',views.ResourceViewSet)
 app_name='api'
 urlpatterns = [
     path('planly',views.planly,name='planly'),
+    path('solacode',views.solacode,name='solacode'),
     path('insta',views.insta,name='insta'),
     path('mail',views.mail,name='mail'),
     path('call',views.call,name='call'),

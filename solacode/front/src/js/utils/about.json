@@ -1,0 +1,44 @@
+{
+    "me": {
+        "en": [
+            "I am a software developer with experience in developing mobile applications, web applications and personal websites.",
+            "I have received a BSc in Mathematics from Amirkabir University of Technology (Tehran Polytechnic)."
+        ],
+        "fa": [
+            "من یک برنامه‌نویس در زمینه‌های برنامه‌نویسی اپلیکیشن موبایل، اپلیکیشن تحت وب و سایت‌های شخصی هستم.",
+            "من مدرک کارشناسی خود را در رشته‌ی ریاضیات و کاربردها از دانشگاه امیرکبیر(پلی‌تکنیک تهران) دریافت کرده‌ام."
+        ]
+    },
+    "projects": [
+        {
+            "img": "planly.png",
+            "link": "/api/planly",
+            "text": {
+                "en": [
+                    "I have designed the UI and developed the application PLANLY for mobile devices.",
+                    "With PLANLY you can plan your days easily and quickly, while keeping your vision in sight.",
+                    "This application was developed with React Native and Expo frameworks, and build for android with EAS services."
+                ],
+                "fa": [
+                    "اپلیکیشن  PLANLY را برای گوشی‌های همراه طراحی‌کرده و توسعه‌داده‌ام.",
+                    "با استفاده از PLANLY شما خواهید توانست روز خود را سریع و به راحتی برنامه‌ریزی کنید.",
+                    "این اپلیکیشن توسط فریم‌ورک‌های React Native و Expo توسعه داده شده و  پکیج اندروید آن توسط سرویس EAS ساخته‌شده‌است.این اپلیکیشن توسط فریم‌ورک‌های React Native و Expo توسعه داده شده و  پکیج اندروید آن توسط سرویس EAS ساخته‌شده‌است."
+                ]
+            }
+        },
+        {
+            "img": "solacode.png",
+            "link": "/api/solacode",
+            "text": {
+                "en": [
+                    "I have designed the UI and developed my personal website, and its blog app.",
+                    "This website uses PostgreSQL database. Its back-end is written with Django and Django Rest Framework and its front-end utilizes React managed by Vite, React Router and Sass pre-processor."
+                ],
+                "fa": [
+                    "وبسایت شخصی و اپلیکیشن وبلاگ آن را طراحی کرده و توسعه داده‌ام.",
+                    "این وبسایت از یک پایگاه‌داده‌ی PostgreSQL استفاده می‌کند. Back-end آن را توسط فریم‌ورک Django و Django Rest Framework توسعه‌داده‌ام؛ و برای توسعه‌ی front-end آن از React مدیریت‌شده با Vite، ماژول React Router و پیش‌پردازنده‌ی Sass استفاده کرده‌ام."
+                ]
+            }
+        }
+    ]
+}
