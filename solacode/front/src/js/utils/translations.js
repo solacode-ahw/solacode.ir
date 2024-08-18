@@ -96,6 +96,10 @@ export const home = {
         en: 'What projects have I developed?',
         fa: 'پروژه‌های من',
     },
+    more: {
+        en: 'find out more',
+        fa: 'بیشتر بخوانید',
+    },
     advert: {
         text: {
             en: 'I will create your website or application exactly the way you want it!',

@@ -2,11 +2,13 @@
     "me": {
         "en": [
             "I am a software developer with experience in developing mobile applications, web applications and personal websites.",
-            "I have received a BSc in Mathematics from Amirkabir University of Technology (Tehran Polytechnic)."
+            "I have received a BSc in Mathematics from Amirkabir University of Technology (Tehran Polytechnic).",
+            "When I began learning programming, I started with online courses from world's top universities such as MIT and Penn, after which I continued updating my skills and knowledge through reading documents and culminating experience by writing small projects."
         ],
         "fa": [
             "من یک برنامه‌نویس در زمینه‌های برنامه‌نویسی اپلیکیشن موبایل، اپلیکیشن تحت وب و سایت‌های شخصی هستم.",
-            "من مدرک کارشناسی خود را در رشته‌ی ریاضیات و کاربردها از دانشگاه امیرکبیر(پلی‌تکنیک تهران) دریافت کرده‌ام."
+            "من مدرک کارشناسی خود را در رشته‌ی ریاضیات و کاربردها از دانشگاه امیرکبیر(پلی‌تکنیک تهران) دریافت کرده‌ام.",
+            "وقتی یادگیری برنامه‌نویسی را شروع کردم، با دوره‌های آنلاین از بهترین دانشگاه‌های جهان مانند MIT و Penn شروع کردم. پس از آن از طریق خواندن داکیومنت‌ها و تمرین با پروژه‌های کوچک دانش و مهارت‌های خود را به روز نگه‌داشتم."
         ]
     },
     "projects": [

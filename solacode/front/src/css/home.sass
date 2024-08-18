@@ -29,20 +29,41 @@
 
 #about
     padding: 128px 0px
+    max-width: 750px
+    margin: 0px auto
     gap: 48px
     display: flex
     flex-flow: row wrap
     align-items: flex-start
     justify-content: space-evenly
+    .me
+        gap: 4px
+        img
+            width: 100%
+            height: auto
+            margin-bottom: 20px
+    .projects
+        gap: 32px
+        .project
+            display: flex
+            flex-flow: column nowrap
+            align-items: flex-start
+            gap: 6px
+            .project-details
+                p
+                    padding: 6px 0px
+                img
+                    float: inline-start
+                    padding-inline-end: 12px
+                    padding-bottom: 6px
+                    width: 50px
+                    height: 50px
     .about-section
         display: flex
         flex-flow: column nowrap
         flex: 1 1 content
         min-width: 300px
         max-width: 325px
-        img
-            width: 100%
-            height: auto
         h4
             font-size: 20px
             text-transform: capitalize
@@ -67,7 +88,10 @@
         align-items: center
         justify-content: center
         min-width: 250px
-        max-width: 425px
+        max-width: 700px
+        p
+            font-size: 20px
+            font-weight: bold
 
 .light
     #advert

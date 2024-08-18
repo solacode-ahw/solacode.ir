@@ -5,6 +5,7 @@ import { SolaButton } from "../components/basic";
 
 import { home } from "../utils/translations";
 import { SettingsContext } from "../utils/context";
+import about from '../utils/about.json';
 
 import '../../css/home.sass';
 
@@ -28,12 +29,26 @@ function Home() {
         )}
       </section>
       <article id="about">
-        <section className="about-section">
+        <section className="about-section me">
           <img src="/assets/front/img/me-img.jpg" alt={home.alts.me[settings.lang]} />
           <h4>{home.about[settings.lang]}</h4>
+          {about.me[settings.lang].map(par=>
+            <p>{par}</p>
+          )}
         </section>
-        <section className="about-section">
+        <section className="about-section projects">
           <h4>{home.projects[settings.lang]}</h4>
+          {about.projects.map(proj=>
+            <article className="project">
+              <section className="project-details" >
+                <img src={`/assets/front/img/${proj.img}`} alt={proj.img} />
+                {proj.text[settings.lang].map(par=>
+                  <p>{par}</p>
+                )}
+              </section>
+              <SolaButton url={proj.link} label={home.more[settings.lang]} arrow={true} />
+            </article>
+          )}
         </section>
       </article>
       <section id="advert">
