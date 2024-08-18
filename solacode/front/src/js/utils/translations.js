@@ -55,12 +55,12 @@ export const error = {
 
 export const home = {
     keywords: {
-        en: '',
-        fa: '',
+        en: 'solacode, web development, application development, back-end development, front-end development',
+        fa: 'solacode, توسعه وبسایت, توسعه اپلیکیشن, طراحی وبسایت, طراحی اپلیکیشن',
     },
     description: {
-        en: '',
-        fa: '',
+        en: 'I am a software developer with experience in developing mobile applications, web applications and personal websites.',
+        fa: 'من یک برنامه‌نویس در زمینه‌های برنامه‌نویسی اپلیکیشن موبایل، اپلیکیشن تحت وب و سایت‌های شخصی هستم.',
     },
     alts: {
         me: {
