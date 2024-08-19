@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "django-vite-plugin": "^4.0.1",
+    "js-cookie": "^3.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",

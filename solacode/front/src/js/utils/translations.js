@@ -146,11 +146,15 @@ export const hire = {
         fa: 'درخواست شما با موفقیت ثبت شد. به زودی با شما تماس خواهم‌گرفت!',
     },
     fail: {
-        en: 'Something went wrong. Try again in a few minutes!',
-        fa: 'مشکلی پیش آمده‌است. پس از چند دقیقه مجدداً اقدام کنید!',
+        en: "Something went wrong. Make sure you've typed everything correctly and try again!",
+        fa: 'مشکلی رخ داده‌است. از صحت اطلاعات وارد شده اطمینان حاصل کرده و مجدداً تلاش کنید!',
     },
     ok: {
         en: 'OK',
         fa: 'باشه',
+    },
+    error: {
+        en: 'Please fill out all of the required fields!',
+        fa: 'لطفا تمام فیلدهای ضروری را پر کنید!',
     },
 };

@@ -7,6 +7,11 @@ form
     gap: 24px
     width: min(100%, 500px)
     margin: 0px auto
+    input,textarea
+        &.error
+            border: 1px solid base.$red
+    p
+        color: base.$red
     button
         align-self: flex-start
 
@@ -21,6 +26,12 @@ form
         margin: auto
         padding: 32px
         gap: 24px
+        &.loader-wrapper
+            border-radius: 75px
+            padding: 0px
+        .loader
+            width: 150px
+            height: 150px
 
 .light
     dialog

@@ -5,7 +5,7 @@ class HirePermission(permissions.BasePermission):
         if request.method=='POST':
             return True
         else:
-            return False
+            return permissions.IsAdminUser.has_permission(request,view)
         
 class AllowAny(permissions.AllowAny):
     pass
