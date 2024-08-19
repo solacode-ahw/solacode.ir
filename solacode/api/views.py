@@ -1,9 +1,9 @@
 from django.shortcuts import redirect
 from django.http import HttpResponse,FileResponse
 from user_agents import parse
-from rest_framework import permissions, viewsets
+from rest_framework import viewsets
 
-from . import serializers, models
+from . import serializers, models, permissions
 
 # Create your views here.
 def planly(request):
@@ -50,7 +50,7 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
 class HireViewSet(viewsets.ModelViewSet):
     queryset = models.Hire.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.HirePermission,
     ]
     serializer_class = serializers.HireSerializer
 
