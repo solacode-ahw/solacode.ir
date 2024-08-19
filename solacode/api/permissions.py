@@ -6,3 +6,6 @@ class HirePermission(permissions.BasePermission):
             return True
         else:
             return False
+        
+class AllowAny(permissions.AllowAny):
+    pass
