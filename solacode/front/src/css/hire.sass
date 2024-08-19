@@ -1,0 +1,40 @@
+@use 'base'
+@use 'sass:color'
+
+form
+    display: flex
+    flex-flow: column nowrap
+    gap: 24px
+    width: min(100%, 500px)
+    margin: 0px auto
+    button
+        align-self: flex-start
+
+#body
+    dialog[open]
+        display: flex
+        flex-flow: column nowrap
+        align-items: flex-end
+        border-radius: 6px
+        border: none
+        position: fixed
+        margin: auto
+        padding: 32px
+        gap: 24px
+
+.light
+    dialog
+        background-color: base.$light
+        box-shadow: base.$raise-light
+        color: base.$dark
+        &::backdrop
+            backdrop-filter: blur(4px)
+            background-color: #0000
+.dark
+    dialog
+        background-color: base.$dark
+        box-shadow: base.$raise-dark
+        color: base.$light
+        &::backdrop
+            backdrop-filter: blur(4px)
+            background-color: #0000

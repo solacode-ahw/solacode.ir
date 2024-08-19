@@ -26,3 +26,17 @@ export function SolaButton({action=null,url=null,icon='',label='',arrow=false}){
         );
     }
 }
+
+export function Input({name,label='',required=true,placeholder='',type="text"}){
+    const settings = useContext(SettingsContext);
+
+    return (
+        <section className="input-wrapper">
+            <label htmlFor={name}>{label}<span className="inp-indicator">{required?'*':(settings.lang==='en'?' (optional)':' (اختیاری)')}</span></label>
+            {type=='textarea'?
+                <textarea name={name} placeholder={placeholder} required={required} />:
+                <input type={type} name={name} placeholder={placeholder} required={required} />
+            }
+        </section>
+    );
+}

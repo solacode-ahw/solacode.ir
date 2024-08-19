@@ -115,3 +115,42 @@ export const home = {
         }
     }
 };
+
+export const hire = {
+    title: {
+        en: 'Request my services',
+        fa: 'ارسال درخواست همکاری',
+    },
+    name: {
+        en: 'Name/Company/Organization',
+        fa: 'نام/شرکت/سازمان',
+    },
+    email: {
+        en: 'Email',
+        fa: 'ایمیل',
+    },
+    budget: {
+        en: 'Budget',
+        fa: 'بودجه',
+    },
+    summary: {
+        en: 'Tell me a little about your project',
+        fa: 'کمی درباره‌ی پروژه‌ی خود توضیح دهید',
+    },
+    submit: {
+        en: 'Submit Request',
+        fa: 'ثبت درخواست',
+    },
+    success: {
+        en: "Your request was submitted successfully. I'll be in touch soon!",
+        fa: 'درخواست شما با موفقیت ثبت شد. به زودی با شما تماس خواهم‌گرفت!',
+    },
+    fail: {
+        en: 'Something went wrong. Try again in a few minutes!',
+        fa: 'مشکلی پیش آمده‌است. پس از چند دقیقه مجدداً اقدام کنید!',
+    },
+    ok: {
+        en: 'OK',
+        fa: 'باشه',
+    },
+};

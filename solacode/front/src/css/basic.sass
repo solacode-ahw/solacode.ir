@@ -9,6 +9,7 @@
     align-items: center
     gap: 8px
     text-transform: capitalize
+    cursor: pointer
     &.wide
         padding: 4px 12px
     &.square
@@ -23,19 +24,49 @@
     &:hover
         font-weight: normal
 
+.input-wrapper
+    display: flex
+    flex-flow: column nowrap
+    gap: 4px
+    align-items: stretch
+    label
+        font-size: 14px
+        .inp-indicator
+            color: base.$primary-original
+    input, textarea
+        border-radius: 6px
+        padding: 4px 12px
+        resize: none
+        &:placeholder-shown
+            color: base.$gray
+        &:focus
+            outline: none
+    textarea
+        height: 250px
+
 .light
     .sola-button
         background-color: base.$light
         box-shadow: base.$raise-light
+        color: base.$dark
         &:hover
             background-color: base.$dark
             box-shadow: base.$raise-dark
             color: base.$light
+    input,textarea
+        border: 1px solid base.$dark
+        background-color: base.$light
+        color: base.$dark
 .dark
     .sola-button
         background-color: base.$dark
         box-shadow: base.$raise-dark
+        color: base.$light
         &:hover
             background-color: base.$light
             box-shadow: base.$raise-light
             color: base.$dark
+    input,textarea
+        border: 1px solid base.$light
+        background-color: base.$dark
+        color: base.$light
