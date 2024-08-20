@@ -69,7 +69,7 @@ class HireViewSet(viewsets.ModelViewSet):
 class BlogViewSet(viewsets.ModelViewSet):
     queryset = models.Blog.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.ContentPermission
     ]
     serializer_class = serializers.BlogSerializer
 
