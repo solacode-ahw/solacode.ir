@@ -77,7 +77,7 @@ function Hire() {
         <title>SolaCode</title>
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
-      <form ref={formRef}>
+      <form id="hire-form" ref={formRef}>
         <h2>{hire.title[settings.lang]}</h2>
         <Input name="name" label={hire.name[settings.lang]} />
         <Input name="email" label={hire.email[settings.lang]} type="email" />
