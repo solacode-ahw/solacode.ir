@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 
 import { SettingsContext } from "../utils/context";
 
@@ -38,5 +38,21 @@ export function Input({name,label='',required=true,placeholder='',type="text"}){
                 <input type={type} name={name} placeholder={placeholder} required={required} />
             }
         </section>
+    );
+}
+
+export function Search({label, placeholder, onSearch}){
+    const searchRef = useRef(null);
+
+    const search = () => {
+        onSearch(searchRef.current.value);
+    };
+
+    return (
+        <form className="search">
+            <label htmlFor="search" className="hide">{label}</label>
+            <input ref={searchRef} type="text" name="search" placeholder={placeholder} />
+            <SolaButton action={search} icon="search" />
+        </form>
     );
 }

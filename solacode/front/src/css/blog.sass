@@ -1,0 +1,51 @@
+@use 'base'
+
+#header
+    display: flex
+    flex-flow: row wrap
+    align-items: center
+    justify-content: space-between
+    padding: 16px
+    gap: 32px
+    h2.pointer
+        cursor: pointer
+    section
+        display: flex
+        flex-flow: row nowrap
+        gap: 16px
+        align-items: center
+        h2
+            font-size: 24px
+
+#posts-view
+    padding: 32px 16px
+    display: grid
+    grid-template-columns: repeat(auto-fit,300px)
+    gap: 32px
+    justify-content: center
+    .postcard
+        display: flex
+        flex-flow: column nowrap
+        align-items: stretch
+        padding: 16px 24px
+        gap: 12px
+        border-radius: 6px
+        h3
+            font-size: 20px
+        a
+            align-self: flex-start
+        img
+            width: 100%
+            height: auto
+
+#more-wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+
+.light
+    .postcard
+        border: 1px solid base.$dark
+.dark
+    .postcard
+        border: 1px solid base.$light
