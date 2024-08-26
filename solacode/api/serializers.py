@@ -17,6 +17,10 @@ class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Blog
         fields = '__all__'
+class BlogListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Blog
+        fields = ['id','title','summary','keywords','image','date']
 
 class ResourceSerializer(serializers.ModelSerializer):
     class Meta:

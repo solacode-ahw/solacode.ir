@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 from django.http import HttpResponse,FileResponse
 from user_agents import parse
-from rest_framework import viewsets
+from rest_framework import viewsets,filters
 
 from . import serializers, models, permissions
 
@@ -37,7 +37,7 @@ def resume(request,lang=''):
 class SubscriptionViewSet(viewsets.ModelViewSet):
     queryset = models.Subscription.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.RegisterPermission
     ]
     serializer_class = serializers.SubscriptionSerializer
 
@@ -50,9 +50,12 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
 class HireViewSet(viewsets.ModelViewSet):
     queryset = models.Hire.objects.all()
     permission_classes = [
-        permissions.HirePermission,
+        permissions.RegisterPermission,
     ]
     serializer_class = serializers.HireSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['creation']
+    ordering = ['-creation']
 
     def create(self, request, *args, **kwargs):
         res = super().create(request,*args,**kwargs)
@@ -71,12 +74,24 @@ class BlogViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.ContentPermission
     ]
-    serializer_class = serializers.BlogSerializer
+    filter_backends = [filters.SearchFilter,filters.OrderingFilter]
+    search_fields = ['title','summary','keywords'] #url?search=<query>
+    ordering_fields = ['date']
+    ordering = ['-date']
+    
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.BlogListSerializer
+        else:
+            return serializers.BlogSerializer
 
 
 class ResourceViewSet(viewsets.ModelViewSet):
     queryset = models.Resource.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.ContentPermission
     ]
     serializer_class = serializers.ResourceSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['name']
+    ordering = ['name']
