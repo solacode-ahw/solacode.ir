@@ -11,5 +11,5 @@ urlpatterns = [
     path('resources',views.index,name='resources'),
     path('unsubscribe',views.index,name='unsubscribe'),
     path('subscription',views.index,name='subscription'),
-    re_path(r"^.*$",views.index)
+    re_path(r"^(?!media).*$",views.index)
 ]
