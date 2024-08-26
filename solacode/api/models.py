@@ -20,6 +20,7 @@ class Hire(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=150, unique=True)
     summary = models.TextField()
+    keywords = models.CharField(max_length=150)
     body = models.TextField()
     image = models.FileField(upload_to='blog/',blank=True)
     date = models.DateField(auto_now_add=True)
