@@ -56,7 +56,7 @@ function Hire() {
         });
         Object.values(document.getElementsByTagName('textarea')).forEach(inp=>{
           inp.value='';
-        })
+        });
       } else {
         throw new Error(`Error: ${response.status}`);
       }
