@@ -13,7 +13,9 @@ function Navigation({items}){
     return (
         <nav>
             {Object.keys(items[settings.lang]).map(key=>
-                path===items[settings.lang][key]?null:<a href={items[settings.lang][key]} key={key} title={`${navLinkTitles[settings.lang]} ${key}`}>{key}</a>
+                path===items[settings.lang][key] || path===items[settings.lang][key]+'/'?
+                    null:
+                    <a href={items[settings.lang][key]} key={key} title={`${navLinkTitles[settings.lang]} ${key}`}>{key}</a>
             )}
         </nav>
     );
