@@ -1,0 +1,41 @@
+@use 'base'
+
+#blog-post
+    display: flex
+    flex-flow: column nowrap
+    gap: 24px
+    padding: 32px 16px
+    width: min(100%,800px)
+    align-items: flex-start
+    margin: 0px auto
+    #blog-image
+        height: 250px
+        width: auto
+    h2
+        font-size: 20px
+    #blog-info
+        padding: 4px 8px
+        display: flex
+        flex-flow: column nowrap
+        gap: 4px
+        align-items: flex-start
+        width: 100%
+    #blog-body
+        *
+            line-height: 2
+    #action-wrapper
+        display: flex
+        flex-flow: row wrap
+        gap: 24px
+        align-items: center
+        justify-content: center
+        width: 100%
+
+.light
+    #blog-info
+        border-top: 1px solid base.$dark
+        border-bottom: 1px solid base.$dark
+.dark
+    #blog-info
+        border-top: 1px solid base.$light
+        border-bottom: 1px solid base.$light
