@@ -27,12 +27,14 @@ function Blog() {
 
   const [end,setEnd] = useState(false);
   const [searchFlag,setSearchFlag] = useState(false);
+  const [loading,setLoading] = useState(false);
   const [page,setPage] = useState(1);
 
   const [load,setLoad] = useState(0);
 
   useEffect(()=>{
     // retrieve new pages, then setLoad(load+1)
+    setLoading(true);
     fetch(`/api/db/blog/?page=${page}`).then((response) => {
       if(response.ok){
         return response.json();
@@ -48,7 +50,7 @@ function Blog() {
         setEnd(true);
       }
       setLoad(load+1);
-      console.log(articles.current);
+      setLoading(false);
     }).catch((error) => {
       console.log(error);
     });
@@ -107,7 +109,7 @@ function Blog() {
           <PostCard article={article} key={article.id} />
         )}
       </section>
-      {end || searchFlag ? null :
+      {end || searchFlag || loading ? null :
         <section id="more-wrapper">
           <SolaButton action={()=>setPage(page+1)} icon="down" />
         </section>
