@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import { SolaButton, Search } from "../components/basic";
 import Subscribe from "../components/subscribe";
-
-import { SettingsContext } from "../utils/context";
 
 import '../../css/blog.sass';
 
@@ -23,12 +21,14 @@ function PostCard({article}){
 }
 function Blog() {
   const subRef = useRef(null);
+  const postsContainer = useRef(null);
   const articles = useRef([]);
 
   const [end,setEnd] = useState(false);
   const [searchFlag,setSearchFlag] = useState(false);
   const [loading,setLoading] = useState(false);
   const [page,setPage] = useState(1);
+  const [col,setCol] = useState(1);
 
   const [load,setLoad] = useState(0);
 
@@ -46,7 +46,7 @@ function Blog() {
       }
     }).then((resultJson) => {
       articles.current.push(...resultJson.results);
-      if(resultJson.results.length<10){
+      if(resultJson.results.length<5){
         setEnd(true);
       }
       setLoad(load+1);
@@ -76,9 +76,16 @@ function Blog() {
       articles.current = resultJson.results;
       setPage(0);
       setSearchFlag(true);
+      setLoad(load+1);
     }).catch((error) => {
       console.log(error);
     });
+  };
+
+  const layout = () => {
+    if(postsContainer.current.clientWidth>2){
+      setCol(2);
+    }
   };
 
   const openSubscribe = () => {
@@ -104,10 +111,23 @@ function Blog() {
         </section>
         <Search label="عبارت مورد جستجو" placeholder="دنبال چیزی هستید؟" onSearch={search} />
       </section>
-      <section id="posts-view">
-        {articles.current.map(article=>
-          <PostCard article={article} key={article.id} />
-        )}
+      <section ref={postsContainer} id="posts-view" onLoad={layout}>
+        {col>1?
+          [...Array(col).keys()].map(i=>
+            <section className="posts-view-column" key={i}>
+              {articles.current.map(article => {
+                if(articles.current.indexOf(article)%2==i){
+                  return (<PostCard article={article} key={article.id} />);
+                }
+              })}
+            </section>
+          ):
+          <section className="posts-view-column">
+            {articles.current.map(article =>
+              <PostCard article={article} key={article.id} />
+            )}
+          </section>
+        }
       </section>
       {end || searchFlag || loading ? null :
         <section id="more-wrapper">

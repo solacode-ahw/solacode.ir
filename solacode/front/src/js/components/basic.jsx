@@ -49,10 +49,10 @@ export function Search({label, placeholder, onSearch}){
     };
 
     return (
-        <form className="search">
+        <aside className="search">
             <label htmlFor="search" className="hide">{label}</label>
             <input ref={searchRef} type="text" name="search" placeholder={placeholder} />
             <SolaButton action={search} icon="search" />
-        </form>
+        </aside>
     );
 }

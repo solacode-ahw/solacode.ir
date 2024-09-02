@@ -79,7 +79,7 @@ function Post() {
             }</p>
             <p>نویسنده: بهار پایدار</p>
           </section>
-          <p>{article.summary}</p>
+          <p id="blog-summary">{article.summary}</p>
           <section id="blog-body">{
             Parser().parse(new Converter().makeHtml(article.body))
           }</section>
