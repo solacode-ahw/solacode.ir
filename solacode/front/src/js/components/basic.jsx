@@ -47,9 +47,14 @@ export function Search({label, placeholder, onSearch}){
     const search = () => {
         onSearch(searchRef.current.value);
     };
+    const onKey = (event) => {
+        if(event.key==='Enter'){
+            search();
+        }
+    };
 
     return (
-        <aside className="search">
+        <aside className="search" onKeyUp={onKey}>
             <label htmlFor="search" className="hide">{label}</label>
             <input ref={searchRef} type="text" name="search" placeholder={placeholder} />
             <SolaButton action={search} icon="search" />
