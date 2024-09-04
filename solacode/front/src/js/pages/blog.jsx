@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 
-import { SolaButton, Search } from "../components/basic";
+import { SolaButton, Search, BackToTop } from "../components/basic";
 import Subscribe from "../components/subscribe";
 
 import '../../css/blog.sass';
@@ -137,6 +137,7 @@ function Blog() {
       <dialog ref={subRef}>
         <Subscribe close={closeSubscribe} />
       </dialog>
+      <BackToTop lang='fa' />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import { SettingsContext } from "../utils/context";
 
@@ -54,5 +54,33 @@ export function Search({label, placeholder, onSearch}){
             <input ref={searchRef} type="text" name="search" placeholder={placeholder} />
             <SolaButton action={search} icon="search" />
         </aside>
+    );
+}
+
+export function BackToTop({lang}){
+    const [show,setShow] = useState(false);
+    
+    const back2top = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+    const setVisible = () => {
+        if(window.scrollY>window.innerHeight){
+            setShow(true);
+        } else {
+            setShow(false);
+        }
+    };
+
+    useEffect(()=>{
+        window.addEventListener('scroll',setVisible);
+    },[]);
+
+    return (
+        <button type="button" onClick={back2top} className={`sola-button ${show?'':'hide'} ${lang}`} id="back-to-top">
+            <span className={`icon up`}></span>
+        </button>
     );
 }
