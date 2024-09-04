@@ -59,7 +59,7 @@ function Subscribe({close}){
     return (
         <>
             <form ref={formRef} id="subscribe-form">
-                <p className="back-whole" onClick={close}><span className="icon down back"></span>برگشت</p>
+                <p className="back-whole" onClick={close}><span className="icon back"></span>برگشت</p>
                 <p id="form-header">برای دریافت مقالات جدید در ایمیل خود، برای خبرنامه ثبت‌نام کنید</p>
                 <Input name="email" label="ایمیل" type="email" />
                 <section id="frequency">
