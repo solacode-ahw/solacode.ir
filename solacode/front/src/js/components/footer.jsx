@@ -9,6 +9,7 @@ import '../../css/footer.sass';
 
 function Footer({onChangeSettings}){
     const blog = /(\/blog\/?$)|(\/blog\/post\/\d+)/.test(useLocation().pathname);
+    const resource = useLocation().pathname==='/resources';
     const settings = useContext(SettingsContext);
 
     const [langOpen,setLangOpen] = useState(false);
@@ -34,7 +35,7 @@ function Footer({onChangeSettings}){
                 <button id="theme-switch" type="button" onClick={()=>onChangeSettings('theme')} aria-label={footer.themeSwitcher.label[settings.lang]} aria-valuetext={footer.themeSwitcher[settings.theme][settings.lang]}>
                     <span className={`icon ${settings.theme}`}></span>
                 </button>
-                {blog?null:
+                {blog || resource?null:
                     <aside id="language-picker" aria-label="website's language, زبان سایت">
                         <button type="button" onClick={()=>setLangOpen(true)} aria-label="open menu, بازکردن منو">
                             <span>{settings.lang==='fa'?'فا':'en'}</span> <span id="arrow" className="icon down"></span>
