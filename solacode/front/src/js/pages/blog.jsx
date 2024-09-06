@@ -33,6 +33,9 @@ function Blog() {
   const [load,setLoad] = useState(0);
 
   useEffect(()=>{
+    window.addEventListener('load',layout);
+  },[]);
+  useEffect(()=>{
     // retrieve new pages, then setLoad(load+1)
     setLoading(true);
     fetch(`/api/db/blog/?page=${page}`).then((response) => {
@@ -46,7 +49,7 @@ function Blog() {
       }
     }).then((resultJson) => {
       articles.current.push(...resultJson.results);
-      if(resultJson.results.length<5){
+      if(resultJson.next===null){
         setEnd(true);
       }
       setLoad(load+1);
@@ -83,7 +86,7 @@ function Blog() {
   };
 
   const layout = () => {
-    if(postsContainer.current.clientWidth>2){
+    if(postsContainer.current.clientWidth>664){
       setCol(2);
     }
   };
@@ -111,23 +114,16 @@ function Blog() {
         </section>
         <Search label="عبارت مورد جستجو" placeholder="دنبال چیزی هستید؟" onSearch={search} />
       </section>
-      <section ref={postsContainer} id="posts-view" onLoad={layout}>
-        {col>1?
-          [...Array(col).keys()].map(i=>
-            <section className="posts-view-column" key={i}>
-              {articles.current.map(article => {
-                if(articles.current.indexOf(article)%2==i){
-                  return (<PostCard article={article} key={article.id} />);
-                }
-              })}
-            </section>
-          ):
-          <section className="posts-view-column">
-            {articles.current.map(article =>
-              <PostCard article={article} key={article.id} />
-            )}
+      <section ref={postsContainer} id="posts-view">
+        {[...Array(col).keys()].map(i=>
+          <section className="posts-view-column" key={i}>
+            {articles.current.map((article,index) => {
+              if(index%col==i){
+                return (<PostCard article={article} key={article.id} />);
+              }
+            })}
           </section>
-        }
+        )}
       </section>
       {end || searchFlag || loading ? null :
         <section id="more-wrapper">
