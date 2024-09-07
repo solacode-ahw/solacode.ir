@@ -41,7 +41,7 @@ export function Input({name,label='',required=true,placeholder='',type="text"}){
     );
 }
 
-export function Search({label, placeholder, onSearch}){
+export function Search({label, placeholder, onSearch, onChange=false}){
     const searchRef = useRef(null);
 
     const search = () => {
@@ -56,7 +56,7 @@ export function Search({label, placeholder, onSearch}){
     return (
         <aside className="search" onKeyUp={onKey}>
             <label htmlFor="search" className="hide">{label}</label>
-            <input ref={searchRef} type="text" name="search" placeholder={placeholder} />
+            <input ref={searchRef} type="text" name="search" placeholder={placeholder} onInput={onChange?search:()=>{}} />
             <SolaButton action={search} icon="search" />
         </aside>
     );
