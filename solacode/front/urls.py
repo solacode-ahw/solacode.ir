@@ -9,6 +9,7 @@ urlpatterns = [
     path('blog',views.index,name='blog'),
     re_path(r"^blog/post",views.index,name='post'),
     path('resources',views.index,name='resources'),
+    re_path(r"^blog/confirm-subscription",views.index,name='confirm'),
     path('unsubscribe',views.index,name='unsubscribe'),
     path('subscription',views.index,name='subscription'),
     re_path(r"^(?!media).*$",views.index)

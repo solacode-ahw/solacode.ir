@@ -14,5 +14,12 @@ class ContentPermission(permissions.BasePermission):
         else:
             return permissions.IsAdminUser.has_permission(self,request,view)
         
+class SubscriptionPermission(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return (
+            permissions.IsAdminUser.has_permission(self,request,view) or
+            obj.token==request.data.get('token',None)
+        )
+        
 class AllowAny(permissions.AllowAny):
     pass

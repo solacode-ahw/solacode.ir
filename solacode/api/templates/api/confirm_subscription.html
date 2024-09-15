@@ -1,0 +1,10 @@
+{% extends 'api/base.html' %}
+
+{% block content %}
+    <div style="padding:32px;max-width:500px;margin: 0px auto;">
+        <p style="text-align:justify;font-size:14px;font-weight:normal;">این ایمیل برای عضویت در خبرنامه‌ی سایت SolaCode ثبت‌نام کرده‌است. اگر شما ثبت‌نام نکرده‌اید، این ایمیل را نادیده بگیرید.</p>
+        <p style="text-align:justify;font-size:14px;font-weight:normal;">اگر خودتان برای خبرنامه ثبت‌نام کرده‌اید، برای تایید ایمیل خود روی لینک زیر کلیک کنید:</p>
+        <a href={{ host|add:'/blog/confirm-subscription/'|add:token }} style="display:block; margin: 32px 0px; text-align:center; font-size:20px; font-weight:bold;text-decoration:underline; color: #333745;">ایمیل خود را تایید کنید</a>
+        <p style="text-align:justify;font-size:14px;font-weight:normal;">لینک بالا بعد از سه ساعت منقضی خواهدشد.</p>
+    </div>
+{% endblock %}

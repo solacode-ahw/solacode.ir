@@ -19,5 +19,8 @@ urlpatterns = [
     path('call',views.call,name='call'),
     path('resume-<str:lang>',views.resume,name='resume'),
     path('resume',views.resume,name='resume'),
+    path('cs<str:token>',views.confirm_subscription,name='confirm-subscription'),
+    path('us<str:token>',views.unsubscribe,name='unsubscribe'),
+    path('gs<str:token>',views.get_subscription,name='get-subscription'),
     path('db/',include(router.urls))
 ]

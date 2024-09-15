@@ -15,11 +15,12 @@ function FrequencyOption({label,select,onClick}){
     );
 }
 
-function Subscribe({close}){
+function Subscribe({close,edit=false,onEdit,subscription}){
     const msgRef = useRef(null);
     const formRef = useRef(null);
     const [msg,setMsg] = useState('');
-    const [freq,setFreq] = useState('w');
+    const [freq,setFreq] = useState(edit?subscription.frequency:'w');
+    const [active,setActive] = useState(true);
 
     const select = (flag) => {
         setFreq(flag);
@@ -27,7 +28,8 @@ function Subscribe({close}){
     const subscribe = () => {
         const form = new FormData(formRef.current);
         form.append("frequency",freq);
-        fetch('/api/db/subscribe/',{
+        setActive(false);
+        fetch('/api/db/subscription/',{
             method: 'POST',
             body: form,
             headers: {
@@ -36,7 +38,8 @@ function Subscribe({close}){
             mode: 'same-origin',
         }).then((response) => {
             if(response.ok){
-                setMsg('ثبت‌نام در خبرنامه موفق‌آمیز بود!');
+                console.log(response);
+                setMsg('لینک تایید ایمیل ارسال شد. لطفا برای تکمیل ثبت‌نام، ایمیل خود را چک کنید!');
                 msgRef.current.showModal();
                 Object.values(document.getElementsByTagName('input')).forEach(inp=>{
                     inp.value='';
@@ -45,35 +48,48 @@ function Subscribe({close}){
             } else {
                 throw new Error(`Error: ${response.status}`);
             }
-            }).catch((error) => {
-                console.log(error);
-                setMsg('مشکلی رخ داده‌است. دوباره تلاش کنید.');
-                msgRef.current.showModal();
-            });
+        }).catch((error) => {
+            console.log(error);
+            setMsg('مشکلی رخ داده‌است. دوباره تلاش کنید.');
+            msgRef.current.showModal();
+        });
     };
     const closeMsg = () => {
         msgRef.current.close();
         close();
     };
+    const editSubscription = () => {
+        onEdit(freq);
+    };
 
     return (
         <>
             <form ref={formRef} id="subscribe-form">
-                <p className="back-whole" onClick={close}><span className="icon back"></span>برگشت</p>
-                <p id="form-header">برای دریافت مقالات جدید در ایمیل خود، برای خبرنامه ثبت‌نام کنید</p>
-                <Input name="email" label="ایمیل" type="email" />
+                {edit?
+                    <>
+                        <p id="form-header">از اینجا می‌توانید اشتراک خود را ویرایش کنید:</p>
+                        <Input name="email" label="ایمیل" type="email" value={subscription.email} disabled />
+                    </>:
+                    <>
+                        <p className="back-whole" onClick={close}><span className="icon back"></span>برگشت</p>
+                        <p id="form-header">برای دریافت مقالات جدید در ایمیل خود، برای خبرنامه ثبت‌نام کنید</p>
+                        <Input name="email" label="ایمیل" type="email" />
+                    </>
+                }
                 <section id="frequency">
                     <p>با چه تناوب زمانی‌ای می‌خواهید مقالات جدید را دریافت کنید؟</p>
                     <FrequencyOption label="به محض انتشار(هفته‌ای دوبار)" select={freq==='a'} onClick={()=>select('a')} />
                     <FrequencyOption label="هفتگی" select={freq==='w'} onClick={()=>select('w')} />
                     <FrequencyOption label="ماهانه" select={freq==='m'} onClick={()=>select('m')} />
                 </section>
-                <SolaButton label="تکمیل ثبت‌نام خبرنامه" action={subscribe} />
+                <SolaButton label="تکمیل ثبت‌نام خبرنامه" action={edit?editSubscription:subscribe} active={active} />
             </form>
-            <dialog ref={msgRef}>
-                <p>{msg}</p>
-                <SolaButton action={closeMsg} label="باشه" />
-            </dialog>
+            {edit?null:
+                <dialog ref={msgRef}>
+                    <p>{msg}</p>
+                    <SolaButton action={closeMsg} label="باشه" />
+                </dialog>
+            }
         </>
     );
 }

@@ -12,7 +12,7 @@ import Hire from '../../src/js/pages/hire.jsx';
 import Blog from '../../src/js/pages/blog.jsx';
 import Post from '../../src/js/pages/post.jsx';
 import Resources from '../../src/js/pages/resources.jsx';
-import { Unsubscribe, Subscription } from '../../src/js/pages/subscription.jsx';
+import { Confirmation, Unsubscribe, Subscription } from '../../src/js/pages/subscription.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,11 +38,15 @@ const router = createBrowserRouter([
         element: <Post />
       },
       {
-        path: "blog/unsubscribe",
+        path: "blog/confirm-subscription/:token",
+        element: <Confirmation />
+      },
+      {
+        path: "blog/unsubscribe/:token",
         element: <Unsubscribe />,
       },
       {
-        path: "blog/subscription",
+        path: "blog/update-subscription/:token",
         element: <Subscription />,
       },
       {

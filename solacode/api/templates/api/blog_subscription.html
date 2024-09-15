@@ -1,0 +1,23 @@
+{% load static %}
+
+{% extends 'api/base.html' %}
+
+{% block content %}
+    <div style="padding:32px;max-width:500px; margin: 0px auto;">
+        {% for post in posts %}
+            <div style="border-radius:6px;border: 1px solid #333745;padding:16px 24px;margin: 32px 0px;">
+                <p style="font-size:20px;font-weight:bold;">{{post.title}}</p>
+                <p style="font-size:14px;font-weight:normal;margin:12px 0px;">{{post.summary}}</p>
+                <a style="display:block;font-size:14px;font-weight:normal;border-radius:6px;box-shadow:inset 0px 0px 4px #3337457F;" href={{ host|add:'/blog/post/'|add:post.id }}>مقاله‌ی کامل را در وبسایت بخوانید</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div style="padding:32px;border-top:1px solid #333745;">
+        <p style="text-align:center;vertical-align:bottom;">
+            <a href={{ host|add:'/blog/update-subscription/'|add:token }} style="font-size:14px;tex-decoration:underline;">ویرایش اشتراک</a>
+            <img src={{ host|add:'/assets/front/img/solacode.png' }} width=75 height=75 />
+            <a href={{ host|add:'/blog/unsubscribe/'|add:token }} style="font-size:14px;tex-decoration:underline;">لغو اشتراک</a>
+        </p>
+    </div>
+{% endblock %}
+

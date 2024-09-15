@@ -5,7 +5,7 @@ import { SettingsContext } from "../utils/context";
 import '../../css/basic.sass';
 
 
-export function SolaButton({action=null,url=null,icon='',label='',arrow=false}){
+export function SolaButton({action=null,url=null,icon='',label='',arrow=false,active=true}){
     const settings = useContext(SettingsContext);
 
     if(url){
@@ -18,7 +18,7 @@ export function SolaButton({action=null,url=null,icon='',label='',arrow=false}){
         );
     } else if(action){
         return (
-            <button type="button" onClick={action} className={`sola-button ${label?'wide':'square'}`}>
+            <button type="button" onClick={action} className={`sola-button ${label?'wide':'square'}`} disabled={!active}>
                 {icon?<span className={`icon ${icon} symbol`}></span>:null}
                 {label?label:null}
                 {arrow?<span className={`icon ${settings.lang==='fa'?'left':'right'} arrow`}></span>:null}
@@ -27,7 +27,7 @@ export function SolaButton({action=null,url=null,icon='',label='',arrow=false}){
     }
 }
 
-export function Input({name,label='',required=true,placeholder='',type="text"}){
+export function Input({name,label='',required=true,placeholder='',type="text",disabled=false}){
     const settings = useContext(SettingsContext);
 
     return (
@@ -35,7 +35,7 @@ export function Input({name,label='',required=true,placeholder='',type="text"}){
             <label htmlFor={name}>{label}<span className="inp-indicator">{required?'*':(settings.lang==='en'?' (optional)':' (اختیاری)')}</span></label>
             {type=='textarea'?
                 <textarea name={name} placeholder={placeholder} required={required} />:
-                <input type={type} name={name} placeholder={placeholder} required={required} />
+                <input type={type} name={name} placeholder={placeholder} required={required} disabled={disabled} />
             }
         </section>
     );

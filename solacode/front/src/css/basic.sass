@@ -41,6 +41,9 @@
             color: base.$gray
         &:focus
             outline: none
+        &:disabled
+            background-color: base.$gray
+            border: none
     textarea
         height: 250px
 
@@ -83,6 +86,10 @@
             background-color: base.$dark
             box-shadow: base.$raise-dark
             color: base.$light
+        &:disabled
+            color: base.$gray
+            border: 1px solid base.$gray
+            box-shadow: none
     .input-wrapper
         input,textarea
             border: 1px solid base.$dark
@@ -102,6 +109,10 @@
             background-color: base.$light
             box-shadow: base.$raise-light
             color: base.$dark
+        &:disabled
+            color: base.$gray
+            border: 1px solid base.$gray
+            box-shadow: none
     .input-wrapper
         input,textarea
             border: 1px solid base.$light

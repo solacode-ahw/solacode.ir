@@ -9,7 +9,9 @@ freq_choices = { # the choices for frequency field of Subscription
 class Subscription(models.Model):
     email = models.EmailField(unique=True)
     frequency = models.CharField(max_length=1,choices=freq_choices,default='w')
-    token = models.CharField(max_length=256,blank=True)
+    token = models.CharField(max_length=256,default='')
+    confirmed = models.BooleanField(default=False)
+    added_at = models.DateTimeField(auto_now_add=True)
 
 class Hire(models.Model):
     name = models.CharField(max_length=50)
