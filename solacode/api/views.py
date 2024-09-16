@@ -103,7 +103,7 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
             'token': token
         })
         # send email
-        html_mail('confirmation',html_message,request.data['email'])
+        html_mail('SolaCode - تایید ایمیل',html_message,request.data['email'])
 
         return res
 
@@ -121,7 +121,7 @@ class HireViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         res = super().create(request,*args,**kwargs)
         # send email
-        normal_mail('new hire',request.data['summary'])
+        normal_mail('New Hiring Request',request.data['summary'])
         return res
 
     def update(self, request, pk=None):
@@ -166,7 +166,7 @@ class BlogViewSet(viewsets.ModelViewSet):
                 'token': token
             })
             # send email
-            html_mail('new post',html_message,recipient.email)
+            html_mail('SolaCode - انتشار پست جدید',html_message,recipient.email)
         return res
 
 

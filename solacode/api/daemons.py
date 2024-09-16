@@ -22,7 +22,7 @@ def weekly_subscription_daemons():
                 'token': token
             })
             # send email
-            html_mail('new posts',html_message,recipient.email)
+            html_mail('SolaCode - پست‌های هفته',html_message,recipient.email)
 
 def monthly_subscription_daemons():
     posts = Blog.objects.filter(date__month=datetime.date.today().month)
@@ -41,7 +41,7 @@ def monthly_subscription_daemons():
                 'token': token
             })
             # send email
-            html_mail('new posts',html_message,recipient.email)
+            html_mail('SolaCode - پست‌های ماه اخیر',html_message,recipient.email)
 
 def validity_check():
     validity_limit = datetime.datetime.now() - datetime.timedelta(hours=3)

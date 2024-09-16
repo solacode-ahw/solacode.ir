@@ -55,7 +55,7 @@ function Post() {
     return (
       <>
         <Helmet>
-          <title>{article.title}</title>
+          <title>SolaCode - {article.title}</title>
           <meta name="keywords" content={article.keywords} />
           <meta name="description" content={article.summary} />
           <meta name="author" content="SolaCode" />
