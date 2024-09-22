@@ -59,6 +59,10 @@ def unsubscribe(request,token):
         else:
             qset[0].delete()
             response['status']=200
+    if(request.method=='POST'):
+        qset = models.Subscription.objects.filter(token=token,confirmed=True)
+        if(len(qset)>0):
+            qset[0].delete()
     return JsonResponse(response)
 
 def get_subscription(request,token):
@@ -166,7 +170,7 @@ class BlogViewSet(viewsets.ModelViewSet):
                 'token': token
             })
             # send email
-            html_mail('SolaCode - انتشار پست جدید',html_message,recipient.email)
+            html_mail('SolaCode - انتشار پست جدید',html_message,recipient.email,token=token)
         return res
 
 

@@ -1,10 +1,23 @@
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from .credentials import email
 
 host = 'http://127.0.0.1:8000'
 
-def html_mail(subject,message,to):
-    send_mail(subject,'',email['username'],[to],auth_user=email['username'],auth_password=email['password'],html_message=message)
+def html_mail(subject,message,to,token=''):
+    if(token):
+        msg = EmailMessage(
+            subject,
+            message,
+            [to],
+            headers={
+                "List-Unsubscribe": f'<{host}/api/us{token}>',
+                "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"
+            }
+        )
+        msg.content_subtype = 'html'
+        msg.send()
+    else:
+        send_mail(subject,'',[to],auth_user=email['username'],auth_password=email['password'],html_message=message)
 
 def normal_mail(subject,message):
-    send_mail(subject,message,email['username'],[email['default']],auth_user=email['username'],auth_password=email['password'])
+    send_mail(subject,message,[email['default']],auth_user=email['username'],auth_password=email['password'])
