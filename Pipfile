@@ -8,6 +8,7 @@ django = "*"
 user-agents = "*"
 djangorestframework = "*"
 django-vite-plugin = "*"
+apscheduler = "*"
 
 [dev-packages]
 
