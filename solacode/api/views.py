@@ -150,28 +150,6 @@ class BlogViewSet(viewsets.ModelViewSet):
             return serializers.BlogListSerializer
         else:
             return serializers.BlogSerializer
-        
-    def create(self, request, *args, **kwargs):
-        res = super().create(request,*args,**kwargs)
-
-        posts = models.Blog.objects.all().order_by('-id')[:1]
-
-        recipients = models.Subscription.objects.filter(frequency='a',confirmed=True)
-        for recipient in recipients:
-            while True:
-                token = token_urlsafe(32)
-                if len(models.Subscription.objects.filter(token=token,confirmed=True))==0:
-                    break
-            recipient.token = token
-            recipient.save()
-            html_message = render_to_string('api/blog_subscription.html',context={
-                'host': host,
-                'posts': posts,
-                'token': token
-            })
-            # send email
-            html_mail('SolaCode - انتشار پست جدید',html_message,recipient.email,token=token)
-        return res
 
 
 class ResourceViewSet(viewsets.ModelViewSet):

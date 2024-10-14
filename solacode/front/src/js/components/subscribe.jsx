@@ -78,7 +78,6 @@ function Subscribe({close,edit=false,onEdit,subscription}){
                 }
                 <section id="frequency">
                     <p>با چه تناوب زمانی‌ای می‌خواهید مقالات جدید را دریافت کنید؟</p>
-                    <FrequencyOption label="به محض انتشار(هفته‌ای دوبار)" select={freq==='a'} onClick={()=>select('a')} />
                     <FrequencyOption label="هفتگی" select={freq==='w'} onClick={()=>select('w')} />
                     <FrequencyOption label="ماهانه" select={freq==='m'} onClick={()=>select('m')} />
                 </section>
