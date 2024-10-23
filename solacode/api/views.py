@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.http import HttpResponse,FileResponse,JsonResponse
 from django.template.loader import render_to_string
+from django.conf import settings
 from user_agents import parse
 from rest_framework import viewsets,filters,status
 from rest_framework.response import Response
@@ -33,9 +34,9 @@ def call(request):
     
 def resume(request,lang=''):
     if(lang=='en'):
-        return FileResponse(open('./assets/resume-en.pdf','rb'),as_attachment=True,filename='Bahar Paydar') # return resume-en
+        return FileResponse(open(f'{settings.BASE_DIR}/assets/resume-en.pdf','rb'),as_attachment=True,filename='Bahar Paydar') # return resume-en
     else:
-        return FileResponse(open('./assets/resume-fa.pdf','rb'),as_attachment=True,filename='بهار پایدار') # return resume-fa
+        return FileResponse(open(f'{settings.BASE_DIR}/assets/resume-fa.pdf','rb'),as_attachment=True,filename='بهار پایدار') # return resume-fa
 
 def confirm_subscription(request,token):
     response = {}
