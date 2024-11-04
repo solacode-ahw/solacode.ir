@@ -14,6 +14,7 @@ import '../../css/post.sass';
 function Post() {
   const { id } = useParams();
   const [article,setArticle] = useState(null);
+  const [err, setErr] = useState(false);
   const subRef = useRef(null);
   const msgRef = useRef(null);
 
@@ -31,6 +32,7 @@ function Post() {
       setArticle(resultJson);
     }).catch((error)=>{
       console.log(error);
+      setErr(true);
     });
   },[id]);
 
@@ -51,6 +53,9 @@ function Post() {
     msgRef.current.close();
   };
 
+  if(err){
+    throw new Error();
+  }
   if(article){
     return (
       <>
