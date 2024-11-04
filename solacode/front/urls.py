@@ -1,16 +1,13 @@
 from django.urls import path,re_path
+from django.conf import settings
 
 from . import views
 
 app_name = 'front'
 urlpatterns = [
-    path('',views.index,name='home'),
-    path('hire',views.index,name='hire'),
-    path('blog',views.index,name='blog'),
-    re_path(r"^blog/post",views.index,name='post'),
-    path('resources',views.index,name='resources'),
-    re_path(r"^blog/confirm-subscription",views.index,name='confirm'),
-    path('unsubscribe',views.index,name='unsubscribe'),
-    path('subscription',views.index,name='subscription'),
-    re_path(r"^(?!media).*$",views.index)
+    path(f'{settings.MEDIA_URL[1:-1]}/<str:dir>/<str:file_name>',views.media,name='media'),
+    path(f'{settings.STATIC_URL[1:-1]}/front/<arg0>',views.assets,name='assets'),
+    path(f'{settings.STATIC_URL[1:-1]}/front/<arg0>/<arg1>',views.assets,name='assets'),
+    path(f'{settings.STATIC_URL[1:-1]}/front/<arg0>/<arg1>/<arg2>',views.assets,name='assets'),
+    re_path(r"^.*$",views.index)
 ]
