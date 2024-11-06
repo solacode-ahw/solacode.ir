@@ -136,7 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_HOST='mail.solacode.ir'
 EMAIL_PORT=465
 EMAIL_USE_SSL=True
-DEFAULT_FROM_EMAIL='SolaCode <notification@solacode.ir>'
+DEFAULT_FROM_EMAIL=f"SolaCode <notification@solacode.ir>"
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

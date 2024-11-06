@@ -1,6 +1,10 @@
 from django.core.mail import send_mail, EmailMessage
-from .credentials import email
 
+email = {
+    'username': '',
+    'password': '',
+    'default': '',
+}
 host = 'http://127.0.0.1:8000'
 
 def html_mail(subject,message,to,token=''):
