@@ -13,4 +13,4 @@ def media(request,dir,file_name):
 
 def assets(request,**kwargs):
     args = list(kwargs.values())
-    return FileResponse(open(f"{settings.STATICFILES_DIRS[0]}/front/{'/'.join(args)}",'rb'),filename=args[-1])
+    return FileResponse(open(f"{settings.STATIC_ROOT}/front/{'/'.join(args)}",'rb'),filename=args[-1])

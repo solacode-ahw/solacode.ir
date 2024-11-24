@@ -7,7 +7,6 @@ export default defineConfig({
             input: [
                 'front/main.jsx',
             ],
-            root: './solacode',
         })
     ],
 });

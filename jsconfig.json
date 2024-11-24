@@ -5,13 +5,13 @@
   "compilerOptions": {
     "paths": {
       "@/*": [
-        "./../*"
+        "./*"
       ],
       "@s:rest_framework/*": [
-        "./../../../../../../../../.local/share/virtualenvs/solacode-ZbMm6AEU/lib/python3.12/site-packages/rest_framework/static/rest_framework/*"
+        "./../../../../../../../.local/share/virtualenvs/solacode-ZbMm6AEU/lib/python3.12/site-packages/rest_framework/static/rest_framework/*"
       ],
       "@t:rest_framework/*": [
-        "./../../../../../../../../.local/share/virtualenvs/solacode-ZbMm6AEU/lib/python3.12/site-packages/rest_framework/templates/rest_framework/*"
+        "./../../../../../../../.local/share/virtualenvs/solacode-ZbMm6AEU/lib/python3.12/site-packages/rest_framework/templates/rest_framework/*"
       ],
       "@s:api/*": [
         "./api/static/api/*"

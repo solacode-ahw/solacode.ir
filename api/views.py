@@ -34,9 +34,9 @@ def call(request):
     
 def resume(request,lang=''):
     if(lang=='en'):
-        return FileResponse(open(f'{settings.BASE_DIR}/assets/resume-en.pdf','rb'),as_attachment=True,filename='Bahar Paydar') # return resume-en
+        return FileResponse(open(f'{settings.BASE_DIR}/assets/resume/resume-en.pdf','rb'),as_attachment=True,filename='Bahar Paydar') # return resume-en
     else:
-        return FileResponse(open(f'{settings.BASE_DIR}/assets/resume-fa.pdf','rb'),as_attachment=True,filename='بهار پایدار') # return resume-fa
+        return FileResponse(open(f'{settings.BASE_DIR}/assets/resume/resume-fa.pdf','rb'),as_attachment=True,filename='بهار پایدار') # return resume-fa
 
 def confirm_subscription(request,token):
     response = {}
