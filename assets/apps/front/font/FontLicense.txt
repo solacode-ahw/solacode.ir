@@ -1,0 +1,16 @@
+
+*	Name:			Borna Fonts
+*	Version:			2.0
+*	Author:			Mahdi Ershadi 
+*	Created on:		Feb 07, 2024
+*	Updated on:		Feb 07, 2024
+*	Website:			http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت برنا یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+Borna fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license:  HJQZ580N
+------------------------------------------------------------------------------------- 
+
