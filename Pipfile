@@ -9,6 +9,7 @@ user-agents = "*"
 djangorestframework = "*"
 django-vite-plugin = "*"
 apscheduler = "*"
+psycopg = {extras = ["binary"], version = "*"}
 
 [dev-packages]
 

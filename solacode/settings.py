@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h$2qmzifwfwkne6ffpza!lmp2er24!eb6+)4i-qp5m9on&k*+*'
+SECRET_KEY = os.environ['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
+    'solacode.ir'
 ]
 
 
@@ -81,8 +83,12 @@ WSGI_APPLICATION = 'solacode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['db_name'],                      
+        'USER': os.environ['db_user'],
+        'PASSWORD': os.environ['db_pass'],
+        'HOST': '/var/run/postgresql',
+        'PORT': '5432',
     }
 }
 
@@ -109,9 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-IR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -140,7 +146,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_HOST='mail.solacode.ir'
 EMAIL_PORT=465
 EMAIL_USE_SSL=True
-DEFAULT_FROM_EMAIL=f"SolaCode <notification@solacode.ir>"
+DEFAULT_FROM_EMAIL=f"SolaCode <{os.environ['notif_user']}>"
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -154,3 +160,6 @@ DJANGO_VITE_PLUGIN = {
     'DEV_MODE' : False,
     'BUILD_DIR' : 'build'
 }
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True

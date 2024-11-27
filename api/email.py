@@ -1,11 +1,12 @@
 from django.core.mail import send_mail, EmailMessage
+import os
 
 email = {
-    'username': '',
-    'password': '',
-    'default': '',
+    'username': os.environ['notif_user'],
+    'password': os.environ['notif_pass'],
+    'default': os.environ['my_mail'],
 }
-host = 'http://127.0.0.1:8000'
+host = 'http://solacode.ir'
 
 def html_mail(subject,message,to,token=''):
     if(token):
