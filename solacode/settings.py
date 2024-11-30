@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'solacode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['db_name'],                      
-        'USER': os.environ['db_user'],
-        'PASSWORD': os.environ['db_pass'],
-        'HOST': '/var/run/postgresql',
-        'PORT': '5432',
+        'ENGINE'  : 'django.db.backends.mysql', 
+        'NAME'    : os.environ['db_name'],                  
+        'USER'    : os.environ['db_user'],                     
+        'PASSWORD': os.environ['db_pass'],              
+        'HOST'    : 'localhost',                
+        'PORT'    : '3306',
     }
 }
 
